@@ -1,0 +1,60 @@
+Project 1 - Create Tables
+
+select CREATE TABLE GUIDE 
+(
+ GUIDE_NUM         CHAR(4)   NOT NULL    PRIMARY KEY,
+ LAST_NAME         CHAR(15),
+ FIRST_NAME        CHAR(15),
+ ADDRESS           CHAR(25),
+ CITY              CHAR(15),
+ STATE             CHAR(2),
+ POSTAL_CODE       CHAR(5),
+ PHONE_NUM         CHAR(12),
+ HIRE_DATE         DATE
+);
+COMMIT;
+
+CREATE TABLE TRIP 
+(
+ TRIP_ID           DECIMAL(3)   NOT NULL    PRIMARY KEY,
+ TRIP_NAME         CHAR(75),
+ START_LOCATION    CHAR(50),
+ STATE             CHAR(2),
+ DISTANCE          DECIMAL(4),
+ MAX_GRP_SIZE      DECIMAL(4),
+ TYPE              CHAR(20),
+ SEASON            CHAR(20)
+);
+COMMIT; 
+
+CREATE TABLE CUSTOMERS 
+(
+ CUSTOMER_NUM      CHAR(4)   NOT NULL    PRIMARY KEY,
+ LAST_NAME         CHAR(30),
+ FIRST_NAME        CHAR(30),
+ ADDRESS           CHAR(30),
+ CITY              CHAR(35),
+ STATE             CHAR(2),
+ POSTAL_CODE       CHAR(5),
+ PHONE             CHAR(12)
+);
+COMMIT;
+
+CREATE TABLE RESERVATION
+(
+ RESERVATION_ID    CHAR(7)   NOT NULL    PRIMARY KEY,
+ TRIP_ID           DECIMAL(3),
+ TRIP_DATE         DATE,
+ NUM_PERSONS       DECIMAL(3),
+ TRIP_PRICE        DECIMAL(6),
+ OTHER_FEES        DECIMAL(6),
+ CUSTOMER_NUM       CHAR(4)
+);
+COMMIT;
+
+CREATE TABLE TRIP_GUIDES
+(
+ TRIP_ID           DECIMAL(3)   NOT NULL    PRIMARY KEY,
+ GUIDE_NUM         CHAR(4)
+);
+COMMIT;
